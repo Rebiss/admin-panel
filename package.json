@@ -1,0 +1,16 @@
+{
+  "name": "admin-panel",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "y",
+  "author": "rebiss",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "db": "json-server --watch db.json --port 3022",
+    "front": "yarn start --prefix ./front/"
+  },
+  "dependencies": {
+    "json-server": "^0.16.2"
+  }
+}

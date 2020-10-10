@@ -1,14 +1,31 @@
 import React from 'react';
-import './assets/App.css';
+import { Admin, Resource } from 'react-admin';
+import restProvider from 'ra-data-simple-rest';
+import { URL } from './config/cfg.js';
+import { PostList } from './view/posts/PostList';
+import { PostCreate } from './view/posts/PostCreate';
+import { PostEdit } from './view/posts/PostEdit';
 
-function App() {
+import { UserList } from './view/users/UserList';
+import { UserCreate } from './view/users/UserCreate';
+import { UserEdit } from './view/users/UserEdit';
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        Olla
-      </header>
-    </div>
-  );
+    <Admin dataProvider={ restProvider(URL) }>
+      <Resource 
+        name='posts' 
+        list={ PostList } 
+        create={ PostCreate } 
+        edit={PostEdit}
+      />
+      <Resource 
+        name='posts' 
+        list={ UserList } 
+        create={ UserCreate } 
+        edit={ UserEdit }
+      />
+    </Admin>
+  )
 }
 
-export default App;

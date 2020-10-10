@@ -7,10 +7,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "db": "json-server --watch db.json --port 3022",
-    "front": "yarn start --prefix ./front/"
+    "db": "json-server --watch db.json --port 3022 --middlewares middleware.js",
+    "front": "yarn --cwd ./front/ run start",
+    "mix": "concurrently \"yarn run db\" \"yarn run front\""
   },
   "dependencies": {
+    "concurrently": "^5.3.0",
     "json-server": "^0.16.2"
   }
 }
